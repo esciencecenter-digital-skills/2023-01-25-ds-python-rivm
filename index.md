@@ -80,11 +80,7 @@ Read correct lesson meta from esciencecenter-digital-skills/workshop-metadata
 {% endcomment %}
 
 
-{% if info.flavor and info.flavor != 'NA' %}
-{% capture lesson_meta %}https://raw.githubusercontent.com/esciencecenter-digital-skills/workshop-metadata/main/{{info.curriculum}}-{{info.flavor}}{% endcapture %}
-{% else %}
-{% capture lesson_meta %}https://raw.githubusercontent.com/esciencecenter-digital-skills/workshop-metadata/main/{{info.curriculum}}{% endcapture %}
-{% endif %}
+{% capture lesson_meta %}https://raw.githubusercontent.com/esciencecenter-digital-skills/workshop-metadata/main/dc-ecology-python{% endcapture %}
 
 {% comment %}
 Check DC curriculum
@@ -113,34 +109,6 @@ It looks like you are setting up a website for a Software Carpentry curriculum b
 Check DS curriculum
 {% endcomment %}
 
-{% if info.carpentry == "ds" %}
-{% unless info.curriculum == "ds-cr" or info.curriculum == "ds-docker" or info.curriculum == "ds-dl-intro" or info.curriculum == "ds-gpu" or info.curriculum == "ds-parallel" or info.curriculum == "ds-rpackaging" or info.curriculum == "ds-geospatial"%}
-<div class="alert alert-warning">
-It looks like you are setting up a website for a Digital Skills curriculum but you haven't specified the curriculum type in the <code>_data/data.csv</code> file (current value in <code>_data/data.csv</code>: "<strong>{{ info.curriculum }}</strong>", possible values: <code>ds-cr</code>, <code>ds-docker</code>, <code>ds-dl-intro</code>, <code>ds-gpu</code>, <code>ds-parallel</code> or <code>ds-rpackaging</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
-</div>
-{% endunless %}
-{% endif %}
-
-{% comment %}
-EVENTBRITE
-
-This block includes the Eventbrite registration widget if
-'eventbrite' has been set in the header.  You can delete it if you
-are not using Eventbrite, or leave it in, since it will not be
-displayed if the 'eventbrite' field in the header is not set.
-{% endcomment %}
-{% if eventbrite %}
-<strong>Some adblockers block the registration window. If you do not see the
-  registration box below, please check your adblocker settings.</strong>
-<iframe
-  src="https://www.eventbrite.com/tickets-external?eid={{eventbrite}}&ref=etckt"
-  frameborder="0"
-  width="100%"
-  height="280px"
-  scrolling="auto">
-</iframe>
-{% endif %}
-
 
 <h2 id="general">General Information</h2>
 
@@ -167,6 +135,8 @@ AUDIENCE
 Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
+
+
 {% if info.carpentry == "swc" %}
 {% include swc/who.html %}
 {% elsif info.carpentry == "dc" %}
@@ -177,7 +147,9 @@ workshop is only open to people from a particular institution.
 <div style="display: flex"><div>
      <strong>Who:&nbsp;</strong>
      </div>
-     <div markdown=1>{% remote_include {{lesson_meta}}/who.md %}</div></div>
+     <div>The course is aimed at PhD candidates and other researchers affiliated with RIVM. 
+There are no pre-requisites, and the materials assume no prior knowledge about the tools.</div></div>
+
 {% endif %}
 
 {% comment %}
@@ -242,14 +214,9 @@ Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
   <strong>Requirements:</strong>
-  {% if online == "false" %}
     Participants must bring a laptop with a
-    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
-  {% else %}
-    Participants must have access to a computer with a
-    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
-  {% endif %}
-  They should have a few specific software packages installed (listed <a href="#setup">below</a>).
+    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.).
+    They should have access to the cloud environment as provided by the RIVM.
 </p>
 
 {% comment %}
@@ -260,28 +227,10 @@ special instructions.
 {% endcomment %}
 <p id="accessibility">
   <strong>Accessibility:</strong>
-{% if online == "false" %}
-  We are committed to making this workshop
-  accessible to everybody. The workshop organizers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
-  Materials will be provided in advance of the workshop and
-  large-print handouts are available if needed by notifying the
-  organizers in advance.  If we can help making learning easier for
-  you (e.g. sign-language interpreters, lactation facilities) please
-  get in touch (using contact details below) and we will
-  attempt to provide them.
-</p>
-{% else %}
+
   We are dedicated to providing a positive and accessible learning environment for all. Please
   notify the instructors in advance of the workshop if you require any accommodations or if there is
   anything we can do to make this workshop more accessible to you.
-</p>
-{% endif %}
 
 {% comment %}
 CONTACT EMAIL ADDRESS
@@ -294,7 +243,6 @@ Display the contact email address set in the configuration file.
   {% if site.email %}
   {% for email in site.email %}
   {% if forloop.last and site.email.size > 1 %}
-  or
   {% else %}
   {% unless forloop.first %}
   ,
@@ -408,7 +356,7 @@ of code below the Schedule `<h2>` header below with
 
 {% if info.carpentry == "ds" %}
 <h2 id="syllabus">Syllabus</h2>
-{% remote_include {{lesson_meta}}/syllabus.md %}
+<div markdown=1>{% remote_include {{lesson_meta}}/syllabus.md %}
 {% endif %}
 
 <h2 id="schedule">Schedule</h2>
@@ -420,7 +368,7 @@ of code below the Schedule `<h2>` header below with
 {% elsif info.carpentry == "lc" %}
 {% include lc/schedule.html %}
 {% elsif info.carpentry == "ds" %}
-{% remote_include {{lesson_meta}}/schedule.md %}
+{% remote_include {{lesson_meta}}/schedule-in-person.md %}
 {% elsif info.carpentry == "pilot" %}
 The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. If you would like to know the timing of these breaks in advance, please [contact the workshop organisers](#contact). For a list of lesson sections and estimated timings, [visit the lesson homepage]({{ site.lesson_site }}).
 {% comment %}
@@ -459,57 +407,5 @@ please preview your site before committing, and make sure to run
   this
   {% endif %}
   workshop,
-  you will need access to software as described below.
-  In addition, you will need an up-to-date web browser.
+  you will need access to the cloud environment as provided by the RIVM.
 </p>
-<p>
-  We maintain a list of common issues that occur during installation as a reference for instructors
-  that may be useful on the
-  <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
-</p>
-
-{% comment %}
-These are the installation instructions for the tools used
-during the workshop.
-{% endcomment %}
-
-<h3 id="software-setup">Software setup</h3>
-
-{% if info.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif info.carpentry == "ds" %}
-{% capture content %}
-{% remote_include {{lesson_meta}}/setup.md %}
-{% endcapture %}
-{% if content contains "/setup.md" %}
-  {% capture setup %}
-  {% remote_include https://raw.githubusercontent.com/{{content | strip}} %}
-  {% endcapture %}
-  {{ setup | split: "---" | last}}
-{% else %}
-  {{ content }}
-{% endif %}
-{% elsif info.carpentry == "pilot" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
-{% endif %}
-
-{% comment %}
-For online workshops, the section below provides:
-- installation instructions for the Zoom client
-- recommendations for setting up Learners' workspace so they can follow along
-  the instructions and the videoconferencing
-
-If you do not use Zoom for your online workshop, edit the file
-`_includes/install_instructions/videoconferencing.html`
-to include the relevant installation instrucctions.
-{% endcomment %}
-{% if online != "false" %}
-{% include install_instructions/videoconferencing.html %}
-{% endif %}
-
