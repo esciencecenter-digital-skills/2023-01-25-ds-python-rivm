@@ -2,6 +2,9 @@
 layout: page
 title: "Post-workshop exercise"
 ---
+
+--- 
+# Post-workshop exercise
 ## Introduction
 We hope that after completing this exercise you have an idea of what it takes to analyse and visualize real-world data in python and that you can apply the learned skills to your own projects. 
 For this exercise we use the 'health, lifestyle, health care use and supply, causes of death; from 1900' dataset from CBS opendata. 
