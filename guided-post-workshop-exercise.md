@@ -25,8 +25,8 @@ The filepath of the cleaned dataset is: `'Health__lifestyle__health_care_use_and
 
 ### 0.3. Getting an overview of the data
 The dataset is quite large, or at least there are a lot of different topics in there. The topics are organized in a nested way, for example: 'Use of health care services|Contacts with health professionals|Dentist' consists of 3 levels: 'Use of health care services' (level 1) 'Contacts with health professionals' (level 2) 'Dentist' (level 3). We will write some functions to create a better overview of the dataset and get quicker access to the different topics of our interest.
-1. First figure out how to get the level 1 topic from a full topic description. Create a new variable called topic: `topic = 'level 1| level 2 | level 3'`. Use the [`str.split`](https://www.w3schools.com/python/ref_string_split.asp) function and list indexing to get just the level 1 part of the string.
-2. Create a function that returns a list with just the seven level 1 topics in the dataset. Hint 1: use your answer from the previous question. Hint 2: You can loop over the topics in the dataframe by doing `for topic in df.index:`.
+1. First figure out how to get the level 1 topic from a full topic description. Create a new string variable called topic: `topic = 'level 1| level 2 | level 3'`. Use the [`str.split`](https://www.w3schools.com/python/ref_string_split.asp) function and list indexing to get just the level 1 part of the string.
+2. Create a function that returns a list with just the seven unique level 1 topics in the dataset. Hint 1: use your answer from the previous question. Hint 2: You can loop over the topics in the dataframe by doing `for topic in df.index:`.
 3. Look at the code below. What does it do? Try it out! For example with `subset_data_starting_with(df, 'Use of health care services'`. Copy these functions to your notebook, it will be very handy for the next questions!
 
 ```python
