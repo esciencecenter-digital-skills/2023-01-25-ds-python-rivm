@@ -11,7 +11,7 @@ Before you can solve any of the questions, you first need to load and clean the 
 And select the right data. What follows are questions that help you with this, step by step, without providing the answers.
 
 ### 0.1 Loading the data
-1. Load the data in pandas. (Hint: check the separator that is used in the file, you can pass a different separator to `read_csv()` using the `sep` argument)
+1. Load the data into Python with pandas. (Hint: check the separator that is used in the file, you can pass a different separator to `read_csv()` using the `sep` argument)
 2. Take a look at the data. As you can see, the Topic is read as a column and not as index. You can fix this by passing `index_col='Topic'` to `read_csv()`.
 
 ### 0.2 Cleaning up the data
@@ -19,7 +19,7 @@ And select the right data. What follows are questions that help you with this, s
 2. Replace the value that is used for missing data with NaN. (hint: You can replace values using DataFrame.replace(). You can use numpy.nan to represent NaN values)
 3. Rename the 'Unnamed: 1' column to 'unit'
 4. What is the datatype of the numerical values?
-5. Convert all data in the numerical columns (all columns excluding 'unit') to the 'float' datatype. Use a for-loop to loop over all the numerical columns. Change for a specific column inside the body of the for-loop.
+5. Convert all data in the numerical columns (all columns excluding 'unit') to the 'float' datatype. Use a for-loop to loop over all the numerical columns. Change the datatype of a specific column inside the body of the for-loop.
 6. If you want to be sure you have correctly cleaned the dataset you can load the cleaned csv file and use that for the next part.
 The filepath of the cleaned dataset is: `'Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458_cleaned.csv'`
 
@@ -28,7 +28,7 @@ The dataset is quite large, or at least there are a lot of different topics in t
 (NB: the topics are the index, an example is 'Use of health care services|Contacts with health professionals|Dentist'): 
 The topics are organized in a nested way, separated with '|'. 
 For example: 'Use of health care services|Contacts with health professionals|Dentist' consists of 3 levels: 
-'Use of health care services' (level 1) 'Contacts with health professionals' (level 2) 'Dentist' (level 3). 
+'Use of health care services' (level 1), 'Contacts with health professionals' (level 2), and  'Dentist' (level 3). 
 We will write some functions to create a better overview of the dataset and get quicker access to the different topics of our interest.
 1. First figure out how to get the level 1 topic from a full topic description. Create a new string variable called topic: `topic = 'level 1| level 2 | level 3'`. Use the [`str.split`](https://www.w3schools.com/python/ref_string_split.asp) function and list indexing to get just the level 1 part of the string.
 2. Create a function that returns a list with just the seven unique level 1 topics in the dataset. Hint 1: use your answer from the previous question. Hint 2: You can loop over the topics in the dataframe by doing `for topic in df.index:`.
