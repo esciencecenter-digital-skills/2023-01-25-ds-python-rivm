@@ -39,7 +39,7 @@ So make the graphs as readable as possible, and put some clarifying documentatio
 ## 1. Plotting contacts with health professionals
 We will look at the 'Use of health care services|Contacts with health professionals' data. 
 We want to get a visual overview of how many people have contact with health professionals.
-You need to load, explore, and transform the data to solve these questions, the actual plotting of the data itself is
+**You need to load, explore, clean, and transform the data to solve these questions**, the actual plotting of the data itself is
 just the final step.
 
 ### 1a: Linegraph health care contacts over time
