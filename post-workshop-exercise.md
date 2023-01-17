@@ -14,7 +14,9 @@ and that you can apply the learned skills to your own projects.
 For this exercise we use the 'health, lifestyle, health care use and supply, causes of death; from 1900' dataset from CBS opendata.
 
 You can get a visual overview of the data [here]( https://opendata.cbs.nl/statline/#/CBS/en/dataset/37852eng/table?ts=1671446345991). 
-For this exercise please use the file 'Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458.csv' that is available in your cloud environment.
+For this exercise please download 
+[this .csv file](https://raw.githubusercontent.com/esciencecenter-digital-skills/2023-01-25-ds-python-rivm/main/data/Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458.csv).
+You can right-click and press 'save as' to download it.
 We slightly adapted the format of the data so that it is easier to read into pandas. 
 
 ### Challenging open questions

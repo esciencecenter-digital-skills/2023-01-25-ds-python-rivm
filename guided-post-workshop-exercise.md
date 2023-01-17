@@ -20,8 +20,9 @@ And select the right data. What follows are questions that help you with this, s
 3. Rename the 'Unnamed: 1' column to 'unit'
 4. What is the datatype of the numerical values?
 5. Convert all data in the numerical columns (all columns excluding 'unit') to the 'float' datatype. Use a for-loop to loop over all the numerical columns. Change the datatype of a specific column inside the body of the for-loop.
-6. If you want to be sure you have correctly cleaned the dataset you can load the cleaned csv file and use that for the next part.
-The filepath of the cleaned dataset is: `'Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458_cleaned.csv'`
+6. If you want to be sure you have correctly cleaned the dataset you can download a cleaned csv file and use that for the next part.
+Download the cleaned .csv file [here](https://raw.githubusercontent.com/esciencecenter-digital-skills/2023-01-25-ds-python-rivm/main/data/Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458_cleaned.csv).
+You can right-click and press 'save as' to download it.
 
 ### 0.3. Dealing with topics and selecting the data of interest
 The dataset is quite large, or at least there are a lot of different topics in there. 
