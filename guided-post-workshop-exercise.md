@@ -8,7 +8,8 @@ title: "Guided version of the post-workshop exercise"
 
 ## 0. Loading, cleaning, and selecting the data
 Before you can solve any of the questions, you first need to load and clean the dataset. 
-And select the right data. What follows are questions that help you with this, step by step, without providing the answers.
+And select the right data. What follows are 
+questions that help you with this, step by step, without providing the answers.
 
 ### 0.1 Loading the data
 1. Load the data into Python with pandas. (Hint: check the separator that is used in the file, you can pass a different separator to `read_csv()` using the `sep` argument)
@@ -16,7 +17,7 @@ And select the right data. What follows are questions that help you with this, s
 
 ### 0.2 Cleaning up the data
 1. Take a look at the data. How are missing data represented?
-2. Replace the value that is used for missing data with NaN. (hint: You can replace values using DataFrame.replace(). You can use numpy.nan to represent NaN values)
+2. Replace the value that is used for missing data with NaN. (hint: You can replace values using DataFrame.replace(). You can use `numpy.nan` to represent NaN values. NumPy is the fundamental package for scientific computing with Python, it operates a lot on the background of Pandas, but in this case we will import it. This is usually done like this: `import numpy as np`)
 3. Rename the 'Unnamed: 1' column to 'unit'
 4. What is the datatype of the numerical values?
 5. Convert all data in the numerical columns (all columns excluding 'unit') to the 'float' datatype. Use a for-loop to loop over all the numerical columns. Change the datatype of a specific column inside the body of the for-loop.
@@ -33,7 +34,7 @@ For example: 'Use of health care services|Contacts with health professionals|Den
 We will write some functions to create a better overview of the dataset and get quicker access to the different topics of our interest.
 1. First figure out how to get the level 1 topic from a full topic description. Create a new string variable called topic: `topic = 'level 1| level 2 | level 3'`. Use the [`str.split`](https://www.w3schools.com/python/ref_string_split.asp) function and list indexing to get just the level 1 part of the string.
 2. Create a function that returns a list with just the seven unique level 1 topics in the dataset. Hint 1: use your answer from the previous question. Hint 2: You can loop over the topics in the dataframe by doing `for topic in df.index:`.
-3. Look at the code below. What does it do? Try it out! For example with `subset_data_starting_with(df, 'Use of health care services'`. Copy these functions to your notebook, it will be very handy for the next questions!
+3. Look at the code below. What does it do? Try it out! For example with `subset_data_starting_with(df, 'Use of health care services')`. Copy these functions to your notebook, it will be very handy for the next questions!
 
 ```python
 def subset_data_starting_with(df, pattern):

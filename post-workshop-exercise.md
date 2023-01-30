@@ -18,6 +18,7 @@ For this exercise please download
 [this .csv file](https://raw.githubusercontent.com/esciencecenter-digital-skills/2023-01-25-ds-python-rivm/main/data/Health__lifestyle__health_care_use_and_supply__causes_of_death__from_1900_21122022_143458.csv).
 You can right-click and press 'save as' to download it.
 We slightly adapted the format of the data so that it is easier to read into pandas. 
+**NB: Depending on your browser and operating system the file might be downloaded as a .txt extension. This should be .csv. You can just rename the extension to .csv**
 
 ### Challenging open questions
 The questions are deliberately challenging with little guidance.
